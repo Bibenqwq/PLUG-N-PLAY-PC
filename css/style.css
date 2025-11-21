@@ -1156,6 +1156,10 @@ textarea.input-control {
 
 /* Profile info to prevent wrapping of labels and text */
 
+.profile-info {
+    margin-top: 29px;
+}
+
 .profile-info p {
     font-size: 16px;
     margin-bottom: 12px;
