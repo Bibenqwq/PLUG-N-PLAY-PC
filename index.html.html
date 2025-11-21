@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x icon" href="imgs/PLUG N PLAY LOGO.png" />
+    <title>Plug N Play PC</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #e7e7f9;
+            overflow-x: hidden;
+        }
+        /* LOADING SCREEN */
+        
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #e7e7f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 100;
+            opacity: 1;
+            transition: opacity 0.8s ease-in-out;
+        }
+        
+        .loader-container.fade-out {
+            opacity: 0;
+        }
+        
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 180px;
+            opacity: 0;
+            animation: logoFadeIn 0.8s forwards, logoMotion 3s infinite ease-in-out, logoGlow 2.5s infinite ease-in-out;
+        }
+        
+        .slide-text {
+            position: absolute;
+            top: 70%;
+            transform: translateY(0);
+            font-size: 38px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #b8a4ff, #8d77ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+            letter-spacing: 3px;
+            opacity: 0;
+            animation: slideDownFromLogo 3s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes logoFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes logoMotion {
+            0% {
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-8px) scale(1.03) rotate(-1deg);
+            }
+            50% {
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-8px) scale(1.03) rotate(1deg);
+            }
+            100% {
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+        }
+        
+        @keyframes logoGlow {
+            0%,
+            100% {
+                filter: drop-shadow(0 0 5px #6a4dfc);
+            }
+            50% {
+                filter: drop-shadow(0 0 18px #8d77ff);
+            }
+        }
+        
+        @keyframes slideDownFromLogo {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.8);
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(15px) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(40px) scale(1.05);
+            }
+            80% {
+                opacity: 0.8;
+                transform: translateY(30px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0) scale(0.8);
+            }
+        }
+        /* MAIN SECTIONS */
+        
+        .sections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+            opacity: 0;
+        }
+        
+        .sections.active {
+            transform: translateX(0);
+            opacity: 1;
+            z-index: 10;
+        }
+        
+        .sections.exit-left {
+            transform: translateX(-100%);
+            opacity: 0;
+            z-index: 5;
+        }
+        
+        .section-image {
+            width: 250px;
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: imageIn 1s forwards;
+            filter: drop-shadow(0 0 5px #6a4dfc);
+            transition: filter 1s ease-in-out;
+        }
+        
+        .section-image.glow {
+            filter: drop-shadow(0 0 25px #8d77ff);
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 0.5s;
+            color: #6a4dfc;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 700px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 1s;
+            margin-bottom: 30px;
+        }
+        
+        .next-btn {
+            font-family: 'Poppins', sans-serif;
+            padding: 12px 25px;
+            background: #6a4dfc;
+            color: #fff;
+            border: none;
+            border-radius: 33px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 1.2s;
+        }
+        
+        .next-btn:hover {
+            background: #8d77ff;
+        }
+        
+        .section-indicators {
+            position: absolute;
+            /* position at the bottom of section */
+            bottom: 40px;
+            /* adjust space from bottom */
+            left: 50%;
+            /* center horizontally */
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 1.1s;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #c0c0c0;
+            transition: 0.3s;
+        }
+        
+        .indicator.active {
+            background: #6a4dfc;
+        }
+        
+        @keyframes imageIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1.05);
+            }
+            80% {
+                transform: translateY(0px) scale(0.98);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* RESPONSIVE */
+        
+        @media (max-width: 768px) {
+            .section-description {
+                font-size: 16px;
+                line-height: 1.5;
+                padding: 0 10px;
+            }
+            .section-image {
+                width: 200px;
+            }
+            .next-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            .section-title {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-description {
+                font-size: 15px;
+            }
+            .section-image {
+                width: 150px;
+            }
+            .next-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            .section-indicators {
+                gap: 8px;
+            }
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+            .section-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div class="loader-container" id="loader">
+        <div class="logo-wrapper">
+            <img src="./imgs/PLUG N PLAY LOGO.png" class="logo" alt="Logo">
+            <div class="slide-text">PLUG N PLAY!</div>
+        </div>
+    </div>
+
+    <!-- SECTIONS -->
+    <div class="sections" id="section1">
+        <img src="./imgs/section1.png" class="section-image" alt="Section 1 Image">
+        <div class="section-title">Innovation</div>
+        <div class="section-description">
+            Our mission is to create reliable, user-friendly products that empower businesses and individuals alike.
+        </div>
+        <button class="next-btn" onclick="nextSection()">Click here to next</button>
+        <div class="section-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+
+    <div class="sections" id="section2">
+        <img src="./imgs/section2.png" class="section-image" alt="Section 2 Image">
+        <div class="section-title">Empowerment</div>
+        <div class="section-description">
+            Providing cutting-edge technology and solutions that drive growth and efficiency for every business.
+        </div>
+        <button class="next-btn" onclick="nextSection()">Click here to next</button>
+        <div class="section-indicators">
+            <div class="indicator"></div>
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+
+    <div class="sections" id="section3">
+        <img src="./imgs/section3.png" class="section-image" alt="Section 3 Image">
+        <div class="section-title">Excellence</div>
+        <div class="section-description">
+            We aim for excellence through collaboration, creativity, and a relentless pursuit of quality.
+        </div>
+        <button class="next-btn" onclick="finishSection()">Get Started</button>
+        <div class="section-indicators">
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator active"></div>
+        </div>
+    </div>
+
+    <script>
+        // INITIAL LOADER
+        setTimeout(() => {
+            const loader = document.getElementById('loader');
+            const firstSection = document.getElementById('section1');
+
+            loader.classList.add('fade-out');
+
+            setTimeout(() => {
+                loader.style.display = 'none';
+                firstSection.classList.add('active');
+
+                const image = firstSection.querySelector('.section-image');
+                const title = firstSection.querySelector('.section-title');
+                const desc = firstSection.querySelector('.section-description');
+                const btn = firstSection.querySelector('.next-btn');
+                const indicators = firstSection.querySelectorAll('.indicator');
+
+                image.classList.add('glow');
+
+                image.style.animation = 'none';
+                title.style.animation = 'none';
+                desc.style.animation = 'none';
+                btn.style.animation = 'none';
+                void image.offsetWidth;
+                void title.offsetWidth;
+                void desc.offsetWidth;
+                void btn.offsetWidth;
+                image.style.animation = 'imageIn 1s forwards';
+                title.style.animation = 'fadeIn 0.8s forwards';
+                desc.style.animation = 'fadeIn 1s forwards';
+                btn.style.animation = 'fadeIn 1s forwards';
+
+                indicators.forEach(ind => {
+                    ind.style.animation = 'fadeIn 1s forwards';
+                });
+            }, 800);
+        }, 5000);
+
+        let currentSection = 1;
+
+        function nextSection() {
+            if (currentSection < 3) {
+                const prev = document.getElementById(`section${currentSection}`);
+                const next = document.getElementById(`section${currentSection + 1}`);
+
+                prev.classList.add('exit-left');
+
+                setTimeout(() => {
+                    prev.classList.remove('active', 'exit-left');
+                    next.classList.add('active');
+
+                    const image = next.querySelector('.section-image');
+                    const title = next.querySelector('.section-title');
+                    const desc = next.querySelector('.section-description');
+                    const btn = next.querySelector('.next-btn');
+                    const indicators = next.querySelectorAll('.indicator');
+
+                    image.classList.add('glow');
+
+                    image.style.animation = 'none';
+                    title.style.animation = 'none';
+                    desc.style.animation = 'none';
+                    btn.style.animation = 'none';
+                    void image.offsetWidth;
+                    void title.offsetWidth;
+                    void desc.offsetWidth;
+                    void btn.offsetWidth;
+                    image.style.animation = 'imageIn 1s forwards';
+                    title.style.animation = 'fadeIn 0.8s forwards';
+                    desc.style.animation = 'fadeIn 1s forwards';
+                    btn.style.animation = 'fadeIn 1s forwards';
+
+                    indicators.forEach((ind, idx) => {
+                        ind.classList.toggle('active', idx === currentSection);
+                    });
+
+                    currentSection++;
+                }, 800);
+            }
+        }
+
+        function finishSection() {
+            const loader = document.getElementById('loader');
+            const current = document.getElementById(`section${currentSection}`);
+
+            // Show loader again
+            loader.style.display = 'flex';
+            setTimeout(() => {
+                loader.classList.remove('fade-out');
+            }, 50);
+
+            // Fade out current section
+            current.classList.add('exit-left');
+
+            // Wait then fade out loader and redirect
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = "Main.html";
+                }, 800);
+            }, 300);
+        }
+    </script>
+
+</body>
+
+</html>

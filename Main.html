@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x icon" href="imgs/PLUG N PLAY LOGO.png" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/aos.css" />
+    <link rel="stylesheet" href="./css/style-switcher.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Plug N Play Pc </title>
+</head>
+
+
+<body>
+
+
+
+
+
+    <!-- Preloader Start -->
+    <div class="preloader js-preloader">
+        <div></div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Page wrapper Start -->
+    <div class="page-wrapper">
+
+        <!------- Header Section Start ------->
+        <header class="header header-js">
+            <div class="container">
+                <div class="logo" data-aos="fade-down" data-aos-duration="1000">
+                    <a href="#">Plug & Play PC<span>Computer Technician Services</span></a>
+                </div>
+
+                <button type="button" class="nav-toggler js-nav-toggler" data-aos="fade-down" data-aos-duration="1000">
+            <span></span>
+        </button>
+
+                <nav class="nav js-nav">
+                    <ul data-aos="fade-down" data-aos-duration="1000">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact"> Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!------- Header Section End ------->
+
+        <!------- Start Section Home ------->
+        <section class="home modern-hero" id="home">
+            <div class="hero-overlay"></div>
+
+            <!-- SLIDER -->
+            <div class="hero-slider">
+                <div class="slide active">
+                    <img src="imgs/laptop3.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="imgs/laptop2.jpg" alt="">
+                </div>
+
+                <!-- Arrows -->
+                <div class="hero-arrows">
+                    <span class="arrow prev">&#10094;</span>
+                    <span class="arrow next">&#10095;</span>
+                </div>
+            </div>
+
+            <!-- INTRO TEXT -->
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+                <h1>Plug n Play PC</h1>
+                <p>Affordable. Reliable. Professional computer repair & IT solutions tailored for your needs.</p>
+                <a class="btn" href="#about">Know more</a>
+            </div>
+        </section>
+        <!------- End Section Home ------->
+
+        <script>
+            let slideIndex = 0;
+            const slides = document.querySelectorAll(".slide");
+            const prev = document.querySelector(".prev");
+            const next = document.querySelector(".next");
+
+            function showSlide(n) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove("active");
+                    if (i === n) slide.classList.add("active");
+                });
+            }
+
+            function nextSlide() {
+                slideIndex = (slideIndex + 1) % slides.length;
+                showSlide(slideIndex);
+            }
+
+            prev.addEventListener("click", () => {
+                slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                showSlide(slideIndex);
+            });
+
+            next.addEventListener("click", nextSlide);
+
+            // Auto slide every 5 seconds
+            setInterval(nextSlide, 5000);
+        </script>
+
+
+
+        <!------- About Section Start ------->
+        <section class="about section-padding" id="about">
+            <div class="container">
+                <div class="grid">
+                    <div class="about-img">
+                        <div class="img-box" data-aos="zoom-in" data-aos-duration="1000">
+                            <img src="./imgs/trayo.png" alt="">
+                            <div class="box box-1">
+                                <span>100%</span>
+                                <p>Legit Services</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <div class="section-title">
+                            <span class="title" data-aos="fade-up" data-aos-duration="600">about us</span>
+                            <h2 class="sub-title " data-aos="fade-up" data-aos-duration="600">Plug n Play PC</h2>
+                        </div>
+                        <p data-aos="fade-up" data-aos-duration="600">In today’s technology-driven world, ensuring your devices operate smoothly and securely has never been more essential. Whether it’s personal computers, office networks, or enterprise systems, reliable tech support directly affects
+                            productivity, security, and peace of mind. At our company, we take pride in delivering expert computer technician services that not only solve your problems but also prevent future issues. Our commitment to excellence is reflected
+                            in every detail, from precise diagnostics to professional repairs and ongoing maintenance.</p>
+                        <p data-aos="fade-up" data-aos-duration="600">With personalized solutions and a dedication to customer satisfaction, we guarantee your technology works flawlessly every time.</p>
+
+                        <a href="#services" class="btn">Know More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!------- Services Section Start ------->
+        <section class="services section-padding" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <span class="title" data-aos="fade-up" data-aos-duration="600">Services</span>
+                    <h2 data-aos="fade-up" data-aos-duration="600">What we do</h2>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Services item start -->
+                    <div class="services-item" data-aos="fade-up" data-aos-duration="600">
+                        <div class="img-box">
+                            <img src="./imgs/t1.png" alt="Monitor cleaning">
+                        </div>
+                        <h3>Monitor cleaning</h3>
+                    </div>
+                    <div class="services-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150">
+                        <div class="img-box">
+                            <img src="./imgs/t2.jpg" alt="Hardware Maintenance">
+                        </div>
+                        <h3>Hardware Maintenance</h3>
+                    </div>
+                    <div class="services-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="250">
+                        <div class="img-box">
+                            <img src="./imgs/t3.jpg" alt="Software Maintenance">
+                        </div>
+                        <h3>Software Maintenance</h3>
+                    </div>
+                    <div class="services-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350">
+                        <div class="img-box">
+                            <img src="./imgs/t4.png" alt="Furniture Cleaning">
+                        </div>
+                        <h3>furniture cleaning</h3>
+                    </div>
+                    <!-- Services item end -->
+                </div>
+            </div>
+        </section>
+        <!------- Services Section End ------->
+
+        <!-- Image Preview Modal -->
+        <div id="imgPreviewModal" class="img-modal">
+            <span class="close-preview">&times;</span>
+            <img class="modal-content" id="previewImg">
+        </div>
+
+        <script>
+            document.querySelectorAll(".services-item .img-box img").forEach(img => {
+                img.addEventListener("click", function() {
+                    let modal = document.getElementById("imgPreviewModal");
+                    let modalImg = document.getElementById("previewImg");
+
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                });
+            });
+
+            document.querySelector(".close-preview").onclick = function() {
+                document.getElementById("imgPreviewModal").style.display = "none";
+            };
+
+            document.getElementById("imgPreviewModal").onclick = function(e) {
+                if (e.target === this) {
+                    this.style.display = "none";
+                }
+            };
+        </script>
+        <!------- Pricing Section Start ------->
+        <section class="pricing section-padding" id="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <span class="title" data-aos="fade-up" data-aos-duration="600">pricing</span>
+                    <h2 class="sub-title" data-aos="fade-up" data-aos-duration="600">our pricing/Strategies</h2>
+                </div>
+
+                <div class="grid">
+
+                    <!-- basic plan start -->
+                    <div class="pricing-item" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="pricing-header">
+                            <h3>basic</h3>
+                            <div class="price"><span>₱299</span>monthly</div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i>Monitor Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Hardware Maintenance</li>
+                                <li><i class="fa-solid fa-times"></i>Software Maintenance</li>
+                                <li><i class="fa-solid fa-times"></i>Network and Security Maintenance</li>
+                                <li><i class="fa-solid fa-times"></i>Preventive Maintenance</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <button class="purchase-btn" data-plan="Basic" data-price="₱299">Purchase</button>
+                        </div>
+                    </div>
+                    <!-- basic plan end -->
+
+                    <!-- standard plan start -->
+                    <div class="pricing-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                        <div class="pricing-header">
+                            <h3>standard</h3>
+                            <div class="price"><span>₱499</span>monthly</div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i>Monitor Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Hardware Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Software Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Network and Security Maintenance</li>
+                                <li><i class="fa-solid fa-times"></i>Preventive Maintenance</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <button class="purchase-btn" data-plan="Standard" data-price="₱499">Purchase</button>
+                        </div>
+                    </div>
+                    <!-- standard plan end -->
+
+                    <!-- premium plan start -->
+                    <div class="pricing-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                        <div class="pricing-header">
+                            <h3>Premium</h3>
+                            <div class="price"><span>₱999</span>monthly</div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i>Monitor Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Hardware Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Software Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Network and Security Maintenance</li>
+                                <li><i class="fa-solid fa-check"></i>Preventive Maintenance</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <button class="purchase-btn" data-plan="Premium" data-price="₱999">Purchase</button>
+                        </div>
+                    </div>
+                    <!-- premium plan end -->
+
+                </div>
+            </div>
+        </section>
+        <!------- Pricing Section End ------->
+
+        <!-- Purchase Modal -->
+        <div id="purchaseModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <h2>Purchase Form</h2>
+
+                <form action="https://api.web3forms.com/submit" method="POST" id="purchaseForm">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="8c62c77b-3a1a-4d6b-985c-3bae49e77c88">
+
+                    <div class="input-box">
+                        <label>Selected Plan:</label>
+                        <input type="text" id="selectedPlan" name="plan" readonly>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Price:</label>
+                        <input type="text" id="selectedPrice" name="price" readonly>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Your Name:</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Email:</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Contact Number:</label>
+                        <input type="text" name="phone" required>
+                    </div>
+
+                    <!-- Optional reCAPTCHA -->
+                    <div class="input-box">
+                        <div class="g-recaptcha" data-sitekey="your-valid-site-key"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+
+
+        <script>
+            const modal = document.getElementById("purchaseModal");
+            const closeBtn = document.querySelector(".close");
+            const planInput = document.getElementById("selectedPlan");
+            const priceInput = document.getElementById("selectedPrice");
+
+            document.querySelectorAll(".purchase-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const plan = btn.getAttribute("data-plan");
+                    const price = btn.getAttribute("data-price");
+
+                    planInput.value = plan;
+                    priceInput.value = price;
+
+                    modal.style.display = "flex";
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = "none";
+
+            window.onclick = e => {
+                if (e.target === modal) modal.style.display = "none";
+            };
+        </script>
+        <!------- Team Section Start ------->
+        <section class="team section-padding" id="team">
+            <div class="container">
+                <div class="section-title">
+                    <span class="title">team</span>
+                    <h2 class="sub-title">meet our team</h2>
+                </div>
+
+                <div class="grid">
+
+                    <!-- TEAM MEMBER -->
+                    <div class="team-item" data-name="Steven Patrix Esguerra" data-age="18" data-school="BATANGAS STATE UNIVERSITY - LIPA" data-gender="Male" data-nationality="Filipino">
+                        <div class="team-inner">
+                            <div class="img-box">
+                                <img src="./imgs/stigben.png">
+
+                            </div>
+                            <div class="detail">
+                                <h3>Steven Patrix Esguerra</h3>
+                                <p>CEO</p>
+                            </div>
+                            <button class="profile-btn">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="team-item" data-name="Dustine John Ortega" data-age="18" data-school="BATANGAS STATE UNIVERSITY - LIPA" data-gender="Male" data-nationality="Filipino">
+                        <div class="team-inner">
+                            <div class="img-box">
+                                <img src="./imgs/dustine.png">
+                            </div>
+                            <div class="detail">
+                                <h3>Dustine John<br>Ortega</h3>
+                                <p>Business Partner</p>
+                            </div>
+                            <button class="profile-btn">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="team-item" data-name="John Andrei Dela Peña" data-age="18" data-school="BATANGAS STATE UNIVERSITY - LIPA" data-gender="Male" data-nationality="Filipino">
+                        <div class="team-inner">
+                            <div class="img-box">
+                                <img src="./imgs/drei.png">
+                            </div>
+                            <div class="detail">
+                                <h3>John Andrei<br>Dela Peña</h3>
+                                <p>Technician</p>
+                            </div>
+                            <button class="profile-btn">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="team-item" data-name="Christian Benedict Bautista" data-age="18" data-school="BATANGAS STATE UNIVERSITY - LIPA" data-gender="Male" data-nationality="Filipino">
+                        <div class="team-inner">
+                            <div class="img-box">
+                                <img src="./imgs/benedict.png">
+                            </div>
+                            <div class="detail">
+                                <h3>Christian Benedict<br>Bautista</h3>
+                                <p>Technician</p>
+                            </div>
+                            <button class="profile-btn">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="team-item" data-name="Vinz Reu Caguimbal" data-age="18" data-school="BATANGAS STATE UNIVERSITY - LIPA" data-gender="Male" data-nationality="Filipino">
+                        <div class="team-inner">
+                            <div class="img-box">
+                                <img src="./imgs/vinz.png">
+                            </div>
+                            <div class="detail">
+                                <h3>Vinz Reu<br>Caguimbal</h3>
+                                <p>Technician</p>
+                            </div>
+                            <button class="profile-btn">View Profile</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!------- Team Section End ------->
+
+        <!-- PROFILE POPUP MODAL -->
+        <div id="profileModal" class="modal">
+            <div class="modal-content profile-animate">
+                <span class="close-profile">&times;</span>
+
+                <h2>Team Member Profile</h2>
+
+                <div class="profile-container">
+                    <div class="profile-img">
+
+                        <img id="pImage" src="" alt="Profile Image">
+                        <div class="social-icons">
+                            <a id="pFacebook" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a id="pInstagram" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <p><strong>NAME:</strong> <span id="pName"></span></p>
+                        <p><strong>AGE:</strong> <span id="pAge"></span></p>
+                        <p><strong>SCHOOL:</strong> <span id="pSchool"></span></p>
+                        <p><strong>GENDER:</strong> <span id="pGender"></span></p>
+                        <p><strong>NATIONALITY:</strong> <span id="pNationality"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const profileModal = document.getElementById("profileModal");
+            const closeProfile = document.querySelector(".close-profile");
+
+            const pName = document.getElementById("pName");
+            const pAge = document.getElementById("pAge");
+            const pSchool = document.getElementById("pSchool");
+            const pGender = document.getElementById("pGender");
+            const pNationality = document.getElementById("pNationality");
+            const pImage = document.getElementById("pImage");
+
+            document.querySelectorAll(".team-item").forEach(member => {
+                member.querySelector(".profile-btn").addEventListener("click", () => {
+
+                    pName.textContent = member.dataset.name;
+                    pAge.textContent = member.dataset.age;
+                    pSchool.textContent = member.dataset.school;
+                    pGender.textContent = member.dataset.gender;
+                    pNationality.textContent = member.dataset.nationality;
+
+                    // Set image dynamically
+                    pImage.src = member.querySelector('img').src;
+
+                    profileModal.style.display = "flex";
+                });
+            });
+
+            closeProfile.onclick = () => profileModal.style.display = "none";
+
+            window.onclick = e => {
+                if (e.target === profileModal) profileModal.style.display = "none";
+            };
+        </script>
+
+
+
+
+        <!-- PROFILE POPUP MODAL -->
+        <div id="profileModal" class="modal">
+            <div class="modal-content profile-animate">
+                <span class="close-profile">&times;</span>
+
+                <h2>Team Member Profile</h2>
+
+                <div class="profile-info">
+                    <p><strong>NAME:</strong> <span id="pName"></span></p>
+                    <p><strong>AGE:</strong> <span id="pAge"></span></p>
+                    <p><strong>SCHOOL:</strong> <span id="pSchool"></span></p>
+                    <p><strong>GENDER:</strong> <span id="pGender"></span></p>
+                    <p><strong>NATIONALITY:</strong> <span id="pNationality"></span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!------- Contact Section Start ------->
+        <section class="contact section-padding" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <span class="title" data-aos="fade-up" data-aos-duration="600">contact us</span>
+                    <h2 class="sub-title" data-aos="fade-up" data-aos-duration="600">have any question ?</h2>
+                </div>
+                <div class="grid contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-info-item" data-aos="fade-up" data-aos-duration="600">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <h3>address</h3>
+                            <p>Sabang, Gen. Luna St, Lipa, Batangas</p>
+                        </div>
+                        <div class="contact-info-item" data-aos="fade-up" data-aos-duration="600">
+                            <i class="fa-solid fa-phone"></i>
+                            <h3>call us</h3>
+                            <p>91 9277 293 ***</p>
+                        </div>
+                        <div class="contact-info-item" data-aos="fade-up" data-aos-duration="600">
+                            <i class="fa-solid fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>PlugNplayPC@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="8c62c77b-3a1a-4d6b-985c-3bae49e77c88">
+                            <div class="input-box" data-aos="fade-up" data-aos-duration="600">
+                                <input type="text" placeholder="Name" class="input-control" name="name" required />
+                            </div>
+                            <div class="input-box" data-aos="fade-up" data-aos-duration="600">
+                                <input type="text" placeholder="Email" class="input-control" name="email" required />
+                            </div>
+                            <div class="input-box" data-aos="fade-up" data-aos-duration="600">
+                                <input type="text" placeholder="Phone" class="input-control" name="phone" required />
+                            </div>
+                            <div class="input-box" data-aos="fade-up" data-aos-duration="600">
+                                <textarea placeholder="Message" class="input-control" name="message" required></textarea>
+                            </div>
+                            <div class="input-box" data-aos="fade-up" data-aos-duration="600">
+                                <div class="g-recaptcha" data-sitekey="your-valid-site-key"></div>
+                            </div>
+                            <div class="btn-wrap" data-aos="fade-up" data-aos-duration="600">
+                                <button type="submit" class="btn">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+        </section>
+        <!------- Contact Section End ------->
+        <!------- Footer Section Start ------->
+        <footer class="footer">
+            <div class="container">
+                <h3>Follow us</h3>
+                <div class="social-links">
+                    <a title="facebook" href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a title="instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+
+
+                </div>
+            </div>
+        </footer>
+        <!------- Footer Section End ------->
+
+        </div>
+        <!-- Page wrapper end -->
+        <!-- Style switcher Start -->
+        <div class="style-switcher js-style-switcher">
+            <button type="button" class="style-switcher-toggler js-style-switcher-toggler">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+            <div class="style-switcher-main">
+                <h2>Style switcher</h2>
+                <div class="style-switcher-item">
+                    <p>Theme color</p>
+                    <div class="theme-color">
+                        <input type="range" min="0" max="360" class="hue-slider js-hue-slider" />
+                        <div class="hue ">Hue: <span class="js-hue"></span></div>
+                    </div>
+                </div>
+                <div class="style-switcher-item">
+                    <label class="form-switch">
+                    <span>Dark Mode</span>
+                    <input type="checkbox" class="js-dark-mode">
+                    <div class="box"></div>
+                </label>
+                </div>
+            </div>
+        </div>
+        <!-- Style switcher end -->
+
+
+
+
+
+        <script src="./js/aos.js "></script>
+        <script src="./js/style-switcher.js "></script>
+        <script src="./js/main.js "></script>
+        <script>
+            let submitButton = document.querySelector('.btn');
+            let isSubmitting = false;
+
+            submitButton.addEventListener('click', function(event) {
+                if (isSubmitting) {
+                    event.preventDefault();
+                    return;
+                }
+                isSubmitting = true;
+                setTimeout(() => {
+                    isSubmitting = false;
+                }, 5000); // 5 seconds delay between form submissions
+            });
+        </script>
+
+</body>
+
+</html>
